@@ -1,21 +1,23 @@
 <?php
-function massalia_setup() {
+function massalia_setup() { // INDISPENSABLE pour la génératon de balises importante sur wordpress
 	
 	/* administrer une image d'entête */
 	add_theme_support( 'custom-header' );
 	/* administrer un logo */
 	add_theme_support( 'custom-logo' );
 	/* Générer la balise title */
-	//add_theme_support( 'title-tag' );
+	add_theme_support( 'title-tag' ); // sinon balise <title> non générée
 	/* administrer les images à la une */
-	//add_theme_support( 'post-thumbnails');
+	add_theme_support( 'post-thumbnails');
 	/* administrer les menus */
 	add_theme_support('menus');
 	/* Ajouter les emplacements de menus */
 	
+		// définition des emplacements de menu
 		register_nav_menus( array(
 			'principal' => 'Navigation principale',
-			'footer' => 'Navigation pied de page'
+			'footer' => 'Navigation pied de page',
+			'sidebar' => 'Navigation sidebar'
 		));
 	
 	add_theme_support( 'html5', array(
@@ -48,14 +50,14 @@ register_sidebar(array(
 		'after_widget' => false
 	));
 
-/*
+
 	register_sidebar(array(
 		'name' => 'Sidebar',
 		'id' => 'sidebar',
 		'before_widget' => false,
 		'after_widget' => false
 	));
-*/
+
 }
 add_action( 'widgets_init', 'massalia_widgets_init' );
 

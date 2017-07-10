@@ -4,11 +4,31 @@
 					<div id="contenu">
 			<?php 
 						// boucle de base et content
+						if(have_posts()):
+							while(have_posts()):
+								the_post();								
 			?>
-					</div>
+								<article>
+									<header>
+										<h1><?php the_title(); ?></h1>
+									</header>
+									<?php the_content(); ?>
+								</article>
+			<?php
+							endwhile;
+						endif;
+			?>
+					</div><!-- fin .contenu -->
 			
 			<?php 
-					// sidebar 
+				// sidebar
+				get_sidebar();
 			?>
-			</div>
+			<?php
+				the_posts_pagination(array(	'prev_text' => 'Page précédente',
+											'next_text' => 'Page suivante',
+											'before_page_number' => '<span class="screen-reader-text">Page</span>'
+				));
+			?>
+			</div><!-- fin .grid -->
 <?php get_footer(); ?>
