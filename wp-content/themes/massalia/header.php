@@ -7,18 +7,18 @@
 </head>
 
 	<body <?php body_class(); // génère les classes wordpress?>>
-		<ul id="menu-evitement" class="evitement menu-hz">
-			<li><a href="#contenu">Aller au contenu</a></li>
-			<li><a href="#navigation-principale">Aller au menu</a></li>
-		</ul>
+		<a href="#contenu" class="screen-reader-text screen-reader-text-focusable" >Aller au contenu</a>
 		<header id="banner" class="center max-largeur" role="banner">
 			<div class="grid grid-1-2-1 grid-center">
 					<div id="logo">
-						<?php the_custom_logo(); ?>
-					</div>
-					
+						<?php
+							if ( function_exists('get_logo')) :
+								echo get_logo();
+							endif;
+						?>
+					</div>					
 					<div id="slogan">
-						<p><?php bloginfo('description');?></p>
+						<p><?php bloginfo('description'); ?></p>
 					</div>
 
 					<div id="recherche">

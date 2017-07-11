@@ -11,14 +11,15 @@ function massalia_setup() { // INDISPENSABLE pour la génératon de balises impo
 	add_theme_support( 'post-thumbnails');
 	/* administrer les menus */
 	add_theme_support('menus');
+
 	/* Ajouter les emplacements de menus */
 	
-		// définition des emplacements de menu
-		register_nav_menus( array(
-			'principal' => 'Navigation principale',
-			'footer' => 'Navigation pied de page',
-			'sidebar' => 'Navigation sidebar'
-		));
+	// définition des emplacements de menu
+	register_nav_menus( array(
+		'principal' => 'Navigation principale',
+		'footer' => 'Navigation pied de page',
+		'sidebar' => 'Navigation sidebar'
+	));
 	
 	add_theme_support( 'html5', array(
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
@@ -43,7 +44,7 @@ add_action('wp_enqueue_scripts', 'massalia_insert_js_in_footer', 1);
 
 // Widgets
 function massalia_widgets_init() {
-register_sidebar(array(
+	register_sidebar(array(
 		'name' => 'Coordonnées',
 		'id' => 'coordonnees',
 		'before_widget' => false,
@@ -57,7 +58,6 @@ register_sidebar(array(
 		'before_widget' => false,
 		'after_widget' => false
 	));
-
 }
 add_action( 'widgets_init', 'massalia_widgets_init' );
 
@@ -65,5 +65,3 @@ function massalia_remove_wordpress_version() {
 	return '';
 }
 add_filter('the_generator', 'massalia_remove_wordpress_version');
-
-?>

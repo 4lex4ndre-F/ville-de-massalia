@@ -245,6 +245,10 @@ button{
     position: absolute;
 }
 
+.screen-reader-text-focusable:focus {
+	left: 0;
+}
+
 .hide {
     display: none;
 }
